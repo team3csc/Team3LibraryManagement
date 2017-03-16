@@ -67,7 +67,16 @@ public class UserInfo implements Serializable {
 
 	public UserInfo() {
 	}
-
+	public UserInfo(String realname, String address, int phoneNumber, String email, String pword, String sex, String degree, byte valid){
+		this.realName = realname;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.pword = pword;
+		this.sex = sex;
+		this.degree = degree;
+		this.valid = valid;
+	}
 	public int getUserId() {
 		return this.userId;
 	}

@@ -64,7 +64,10 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+		<dependency>
+			  <groupId>org.springframework.security.oauth</groupId>
+			  <artifactId>spring-security-oauth2</artifactId>
+		</dependency>
 		<!-- To use JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -18,10 +18,10 @@
 							<div class="x_title">
 								<div class="x_content">
 									<br />
-									<form name="myForm" id="add_book_form" action="#/booksManage"
-										ng-submit="AddBook()" novalidate
-										class="form-horizontal form-label-left">
-
+									
+										<form name="myForm" id="add_book_form" action="#/booksManage"
+												ng-submit="AddBook()" novalidate
+												class="form-horizontal form-label-left">
 										<div class="form-group">
 											<label class="control-label col-md-3 col-sm-3 col-xs-12"
 												for="title">Title <span class="required">*</span>
@@ -84,6 +84,7 @@
 											<label for="middle-name"
 												class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
+												
 												<select name="repeatSelect" ng-model="categoryData.model"
 													class="form-control col-md-7 col-xs-12">
 													<option
@@ -100,6 +101,7 @@
 												<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
+												
 												<select name="repeatSelect2" ng-model="publisherData.model"
 													class="form-control col-md-7 col-xs-12">
 													<option
@@ -117,6 +119,7 @@
 											</label>
 											<div class="col-md-6 col-sm-6 col-xs-12">
 												<input type="number" id="amount" ng-model="book.amount"
+													
 													required="required" class="form-control col-md-7 col-xs-12"
 													placeholder="Amount">
 											</div>

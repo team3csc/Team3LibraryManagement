@@ -1,4 +1,3 @@
-drop database Library;
 create database Library;
 use Library;
 create table BOOK(
@@ -127,6 +126,11 @@ insert into role (role_name) value ("GUEST");
 INSERT INTO `user_info` (`user_id`, `real_name`, `address`, `phone_number`, `email`, `pword`, `sex`, `job`, `degree`, `valid`, `dayofbirth`) VALUES
 (1, 'To The Tan', 'Di An, Binh Duong', 123456789, 'tantt3746@gmail.com', '123456', NULL, NULL, NULL, 1, NULL),
 (2, 'Tran Hoang Giang', 'Thu Duc, TP.HCM', 123456788, 'giangcoibp@gmail.com', '123456', NULL, NULL, NULL, 0, NULL);
+
+insert into USER_INFO(real_name, address, phone_number, email, pword, valid, sex, degree)
+values("user1","Mar Planet",434234234,"user1@csc","1234",true, "female","");
+insert into USER_INFO(real_name, address, phone_number, email, pword, valid, sex, degree)
+values("admin1","Venus Planet",32425234,"admin1@csc","1234",true, "female", "");
 
 INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 (1, 1),
@@ -332,6 +336,28 @@ insert into book(isbn, title, publisher_id, publishing_year, category_id, short_
 values (9876045836095, "Cleopatra: A Biography",25,2015,3,"Few personalities from classical antiquity are more famous--yet more poorly understood--than Cleopatra VII, queen of Egypt. In this major biography, Duane Roller reveals that Cleopatra was in fact a learned and visionary leader whose overarching goal was always the preservation of her dynasty and kingdom.",0,true,6,2);
 insert into book_author(author_id, isbn) values (47,9876045836095);
 
-INSERT INTO `ticket_book` (`isbn`, `ticket_id`) VALUES
-(9780307947390, 1),
-(9780439064866, 1);
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9786045835807, "IELTS Listening Strategies for the Ielts Test",6,2011,12,"",0,true,30,1);
+insert into book_author(author_id, isbn) values (8,9786045835807);
+
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9876045809747, "Essential Grammer for IELTS",6,2015,12,"",0,true,32,1);
+insert into book_author(author_id, isbn) values (6,9876045809747);
+insert into book_author(author_id, isbn) values (7,9876045809747);
+
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9786048554071, "IELTS Writing Strategies for the Ielts Test",6,2015,12,"",0,true,36,1);
+insert into book_author(author_id, isbn) values (6,9786048554071);
+insert into book_author(author_id, isbn) values (7,9786048554071);
+
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9781570624421, "This Light in Oneself",25,1999,5,"These selections present the core of Krishnamurti's teaching on meditation, taken from discussions with small groups",0,true,8,2);
+insert into book_author(author_id, isbn) values (38,9781570624421);
+
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9876046915577, "Book Girl and the Suicidal Mime",1,2014,2,"For Tohko Amano, a third-year high school student and self-styled book girl, being the head of the literary club is more than just an extracurricular activity. It's her bread and butter...literally! Tohko is actually a literature-gobbling demon, who can be found at all hours of the day munching on torn out pages from all kinds of books. But for Tohko, the real delicacies are hand-written stories. To satisfy her gourmet tastes, she's employed (rather, browbeaten) one Konoha Inoue, who scribbles away each day after school to satisfy Tohko's appetite. But when another student comes knocking on the literary club door for advice on writing love letters, will Tohko discover a new kind of delicacy?",0,true,18,1);
+insert into book_author(author_id, isbn) values (13,9876046915577);
+
+insert into book(isbn, title, publisher_id, publishing_year, category_id, short_description, brw_tckt_nber, valid_status, amount, importance)
+values (9876045836095, "Cleopatra: A Biography",25,2015,3,"Few personalities from classical antiquity are more famous--yet more poorly understood--than Cleopatra VII, queen of Egypt. In this major biography, Duane Roller reveals that Cleopatra was in fact a learned and visionary leader whose overarching goal was always the preservation of her dynasty and kingdom.",0,true,6,2);
+insert into book_author(author_id, isbn) values (47,9876045836095);insert into book_author(author_id, isbn) values (6,9876045836095)

@@ -1,8 +1,8 @@
 var app = angular.module('myApp');
 
-app.controller('MainController', function($scope, $http, $routeParams, productService) {
+app.controller('searchController', function($scope, $http, $routeParams, productService) {
+	$scope.searchText=$routeParams.id;
 	getData();
-	$scope.searchText="";
 	function getData() { 
 		$http({
 			method: 'get',

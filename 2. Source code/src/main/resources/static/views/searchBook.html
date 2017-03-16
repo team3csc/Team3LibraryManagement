@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="well well-sm">
+		<strong>Search book</strong>
+		<div class=class="form-group input-group">
+			<a href="#/book" id="list" class="btn btn-default btn-sm"><span
+				class="glyphicon glyphicon-th-list"> </span>List</a> <a href="#/book"
+				id="grid" class="btn btn-default btn-sm"><span
+				class="glyphicon glyphicon-th"></span>Grid</a>
+			<div class="form-group input-group">
+				<input type="text" class="form-control" placeholder="Search.."
+					ng-model="searchText"> <span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#list').click(function(event) {
+				event.preventDefault();
+				$('#products .item').addClass('list-group-item');
+			});
+			$('#grid').click(function(event) {
+				event.preventDefault();
+				$('#products .item').removeClass('list-group-item');
+				$('#products .item').addClass('grid-group-item');
+			});
+		});
+	</script>
+	<div id="products" class="row list-group">
+		<div class="item  col-xs-3 col-lg-3"
+			ng-repeat="book in books | filter : searchText | orderBy:myOrderBy">
+			<div class="thumbnail">
+				<a href="#/book/bookdetail/{{book.isbn}}"><img
+					class="list-image" src="/LMS/images/BOOKS/{{book.isbn}}.jpg"
+					alt="image" /></a>
+				<div class="caption">
+					<h4 class="group inner list-group-item-heading" align="center">
+						{{book.title}}</h4>
+					<div class="row">
+						<div class="col-xs-6 col-md-6">
+							<p class="lead">Amount: {{book.amount}}</p>
+						</div>
+						<div class="col-xs-6 col-md-6">
+							<button class="btn btn-success" ng-click="addCart(book.isbn)">Add
+								to cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

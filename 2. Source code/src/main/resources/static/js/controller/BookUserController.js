@@ -1,9 +1,16 @@
 var app = angular.module('myApp');
 
-app.controller('BookUserController', function($scope, $http, $routeParams) {
+app.controller('BookUserController', function($scope, $http, $routeParams, productService) {
 	
 	var size=8;
-	
+	$scope.addCart= function (x)
+	{
+		var newObj ={
+				id:x,
+				valuable:1
+		};
+		productService.addProduct(newObj);
+	}
 	getData();
 	function getData() { 
 		$http({
