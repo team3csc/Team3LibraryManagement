@@ -1,8 +1,36 @@
 var app = angular.module('myAdmin');
 
 
-app.controller('AdminReportController', function($scope, $routeParams) {
+app.controller('AdminReportController', function($http, $scope, $routeParams, $q) {
 
+	
+	$scope.dataReport = function(){
+		var deferred = $q.defer();
+		$http({
+			method: 'get',
+			url: "http://localhost:9000/LMS/ticket/quantity"
+		}).success(function(data, status, headers, config){			
+			deferred.resolve(data);
+		})
+		.error(function(data, status, headers, config){});
+		return deferred.promise;
+	}		
+	
+//	$scope.ticketReport = getData();	
+//	var url = "http://localhost:9000/LMS/ticket/quantity";
+//	$scope.ticketReport = function (url) {
+//		var data = "";
+//		var deferred = $q.defer();
+//
+//		$http.get(url)
+//		    .success( function(response, status, headers, config) {
+//		         deferred.resolve(response);
+//		    })
+//		    .error(function(errResp) {
+//		         deferred.reject({ message: "Really bad" });
+//		    });
+//		return deferred.promise;
+//		}
 	$scope.ticketData = {
 		     ticketModel: null,
 		     ticketOptions: [
@@ -18,14 +46,22 @@ app.controller('AdminReportController', function($scope, $routeParams) {
 		       {id: 'incomeReportByMonth', name: 'Monthly'},
 		       {id: 'incomeReportByYear', name: 'Yearly'}
 		     ]
-		    };	 	 
+		    };	 	 		
 	
-	$scope.ticketReport = ticketReportByWeek;
- 	$scope.incomeReport = incomeReport; 	 	
+	$scope.ticketReport = $scope.dataReport();
+
+// 	$scope.incomeReport = incomeReport; 	 	
 	
  	$scope.changeTicketReportType = function(){
  		var type = $scope.ticketData.ticketModel; 		
  		if(angular.equals(type, "ticketReportByMonth")) {
+// 			$http({
+// 				method: 'get',
+// 				url: "http://localhost:9000/LMS/ticket/quantity"
+// 			}).success(function(data, status, headers, config){			
+// 				$scope.ticketReport = data;
+// 			})
+// 			.error(function(data, status, headers, config){});
  			$scope.ticketReport = ticketReportByMonth;
  		}else if(angular.equals(type, "ticketReportByWeek")){
  			$scope.ticketReport = ticketReportByWeek;

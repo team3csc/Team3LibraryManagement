@@ -55,11 +55,11 @@
 				</ul>
 				<form class="navbar-form navbar-left">
 					<div class="form-group input-group">
-						<input type="text" class="form-control" placeholder="Search..">
+						<input type="text" class="form-control" placeholder="Search.." ng-model="searchText">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">
+							<a href="#/search/{{searchText}}"><button class="btn btn-default" type="button" >
 								<span class="glyphicon glyphicon-search"></span>
-							</button>
+							</button></a>
 						</span>
 					</div>
 				</form>
@@ -123,6 +123,8 @@
 	<script src="/LMS/js/controller/registerController.js"></script>
 	<script src="/LMS/js/controller/bookDetailController.js"></script>
 	<script src="/LMS/js/controller/BookUserController.js"></script>
+	<script src="/LMS/js/controller/cartController.js"></script>
+	<script src="/LMS/js/controller/searchController.js"></script>
 
 	<footer class="container-fluid text-center">
 		<p>Team 3 Project</p>

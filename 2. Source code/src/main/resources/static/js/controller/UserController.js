@@ -25,7 +25,6 @@ app.controller("UserController", function($scope, $http){
 				//alert("Add user error!!");
 
 			});
-			alert("Registration Success!!");
 		
 	}
 	$scope.removeUser = function(x){

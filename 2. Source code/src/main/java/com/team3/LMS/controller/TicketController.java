@@ -2,6 +2,7 @@ package com.team3.LMS.controller;
 
 import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -48,5 +49,11 @@ public class TicketController {
 	@ResponseBody
 	public Ticket getTicket(@PathVariable int id) {
 		return service.getTicket(id);
+	}
+	
+	@RequestMapping(value = "/ticket/quantity", method = RequestMethod.GET)	
+	@ResponseBody
+	public String getTicketQuantity(){
+		return service.getTicketQuantity();
 	}
 }
