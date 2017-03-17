@@ -41,6 +41,35 @@ app.controller('cartController', function($scope, $http, $routeParams,
 	$scope.orderByMe = function(x) {
 		$scope.myOrderBy = x;
 	}
+	$scope.AddTicket= function(){
+		var num= getNumBorrow();
+		$scope.ticket={
+				"borrowNumber": num,
+				"borrowedDate": "2017-03-16",
+				"userInfo": {
+			    	"userId": 1
+				},
+				"books":$scope.bookCarts	
+		}
+		console.log($scope.ticket)
+		$http.post("http://localhost:9000/LMS/ticket/add",$scope.ticket)
+		.success(function(data, status, headers, config){
+			//alert("Add user success!!");
+			
+		})
+		.error(function(data, status, headers, config){
+			//alert("Add user error!!");
+
+		});
+	}
+	function getNumBorrow(){
+		var len = $scope.bookCarts.length;
+		var num=0;
+		for (var i = 0; i < len; i++) {
+			num+= $scope.bookCarts[i].valuable;
+		}
+		return num;
+	}
 	function getCartInfor() {
 		var len = $scope.products.length;
 		for (var i = 0; i < len; i++) {
@@ -48,6 +77,7 @@ app.controller('cartController', function($scope, $http, $routeParams,
 			getData(index, $scope.products[i].valuable);
 		}
 	}
+		
 	function getData(x,num) {
 		$http({
 			method : 'get',
